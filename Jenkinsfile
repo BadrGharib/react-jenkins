@@ -1,60 +1,10 @@
-pipeline{
-    agent{
-        //label "agent1"
-        docker{
-            image 'node:latest'
-            args '-p 3000:3000'
-        }
-    }
-    environment{
-        CI=true
-    }
-    stages{
-        stage("Install"){
-            steps{
-                //echo "========executing A========"
-                sh 'npm install'
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World multibranch pipeline'
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
-        }
-        stage("build"){
-            steps{
-                //echo "========executing A========"
-                sh 'npm run build'
-            }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
-        }
-        
-    }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
         }
     }
 }
