@@ -6,5 +6,15 @@ pipeline {
                 echo 'Hello World multibranch pipeline'
             }
         }
+        stage('cat Readme'){
+            when {
+                branch 'fix-*'
+            }
+            steps{
+                sh '''
+                 cat README.md
+                 '''
+            }
+        }
     }
 }
