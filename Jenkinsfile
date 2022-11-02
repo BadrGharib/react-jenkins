@@ -30,7 +30,7 @@ pipeline{
         stage("run"){
             steps{
                 //echo "========executing A========"
-                sh 'npm start'
+                sh 'npm run build'
             }
             post{
                 always{
