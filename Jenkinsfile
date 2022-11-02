@@ -10,7 +10,7 @@ pipeline{
         CI=true
     }
     stages{
-        stage("build"){
+        stage("Install"){
             steps{
                 //echo "========executing A========"
                 sh 'npm install'
@@ -27,7 +27,7 @@ pipeline{
                 }
             }
         }
-        stage("run"){
+        stage("build"){
             steps{
                 //echo "========executing A========"
                 sh 'npm run build'
