@@ -27,6 +27,23 @@ pipeline{
                 }
             }
         }
+        stage("run"){
+            steps{
+                //echo "========executing A========"
+                sh 'npm start'
+            }
+            post{
+                always{
+                    echo "========always========"
+                }
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
+            }
+        }
         
     }
     post{
